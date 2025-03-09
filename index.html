@@ -1,1092 +1,743 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deepak Surya | Frontend Engineer</title>
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    
-    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    
-    <link href="https://fonts.cdnfonts.com/css/lexend" rel="stylesheet">
-                         
-                
-    <style>
-        :root {
-            /* Colors - Noir Theme */
-            --background: #000000;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --accent: #dddddd;
-            --border: #333333;
-            --card-bg: #111111;
-            --hover-bg: rgba(255, 255, 255, 0.05);
-            
-            /* Colors - Light Theme */
-            --background-light: #ffffff;
-            --text-primary-light: #000000;
-            --text-secondary-light: #555555;
-            --accent-light: #333333;
-            --border-light: #dddddd;
-            --card-bg-light: #f5f5f5;
-            --hover-bg-light: rgba(0, 0, 0, 0.05);
-            
-            /* Typography */
-            --font-main: 'Lexend', sans-serif;
-            --font-mono: 'Roboto Mono', monospace;
-            
-            /* Spacing */
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 2rem;
-            --spacing-xl: 3rem;
-            
-            /* Border Radius */
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            
-            /* Transitions */
-            --transition-fast: 0.2s ease;
-            --transition-medium: 0.3s ease;
-            --transition-slow: 0.5s ease;
-        }
-        
-        /* Base Styles */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            background-color: var(--background);
-            color: var(--text-primary);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color var(--transition-medium), color var(--transition-medium);
-        }
-        
-        body.light-theme {
-            --background: var(--background-light);
-            --text-primary: var(--text-primary-light);
-            --text-secondary: var(--text-secondary-light);
-            --accent: var(--accent-light);
-            --border: var(--border-light);
-            --card-bg: var(--card-bg-light);
-            --hover-bg: var(--hover-bg-light);
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: color var(--transition-fast);
-        }
-        
-        button {
-            background: none;
-            border: none;
-            font-family: inherit;
-            cursor: pointer;
-        }
-        
-        /* Layout */
-        .portfolio-container {
-            display: flex;
-            flex-direction: row;
-            max-width: 1400px;
-            margin: 3rem auto;
-            min-height: calc(100vh - 6rem);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-        
-        .sidebar {
-            flex: 0 0 30%;
-            max-width: 450px;
-            min-width: 320px;
-            padding: var(--spacing-lg);
-            border-right: 1px solid var(--border);
-            height: 100%;
-            overflow-y: auto;
-            position: sticky;
-            top: 0;
-            display: flex;
-            flex-direction: column;
-            transition: border-color var(--transition-medium);
-            background-color: var(--background);
-        }
-        
-        .main-content {
-            flex: 1;
-            padding: var(--spacing-lg);
-            min-height: 100%;
-            overflow-y: auto;
-            background-color: var(--card-bg);
-        }
-        
-        /* Noir Filter Effect */
-        .noir-filter {
-            filter: grayscale(100%) contrast(1.1);
-        }
-        
-        /* Sidebar Elements */
-        .theme-toggle {
-            position: absolute;
-            top: var(--spacing-md);
-            right: var(--spacing-md);
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            transition: background-color var(--transition-fast), color var(--transition-fast);
-        }
-        
-        .theme-toggle:hover {
-            background-color: var(--hover-bg);
-        }
-        
-        .profile-section {
-            margin-bottom: var(--spacing-xl);
-            margin-top: var(--spacing-xl);
-        }
-        
-        .profile-heading {
-            font-size: 2.5rem;
-            margin-bottom: var(--spacing-sm);
-            letter-spacing: -0.5px;
-        }
-        
-        .profile-title {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-md);
-            font-weight: 400;
-        }
-        
-        .profile-bio {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.7;
-        }
-        
-        .social-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            transition: all var(--transition-fast);
-        }
-        
-        .social-link:hover {
-            background-color: var(--hover-bg);
-            transform: translateY(-2px);
-        }
-        
-        .primary-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border-radius: var(--radius-md);
-            font-size: 0.9rem;
-            border: 1px solid var(--border);
-            background-color: var(--card-bg);
-            color: var(--text-primary);
-            transition: all var(--transition-fast);
-        }
-        
-        .primary-button:hover {
-            background-color: var(--hover-bg);
-            transform: translateY(-2px);
-        }
-        
-        .skills-section {
-            margin-top: var(--spacing-xl);
-        }
-        
-        .section-title {
-            font-size: 1.2rem;
-            margin-bottom: var(--spacing-md);
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-        
-        .skills-category {
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .category-title {
-            font-size: 0.9rem;
-            color: var(--accent);
-            margin-bottom: var(--spacing-xs);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
-        }
-        
-        .skills-list {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .skills-list li {
-            display: inline-block;
-            margin-right: var(--spacing-sm);
-            margin-bottom: var(--spacing-xs);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        /* Tabbed Interface */
-        .tabs-container {
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .tabs-header {
-            display: flex;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: var(--spacing-lg);
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-        
-        .tabs-header::-webkit-scrollbar {
-            display: none; /* Hide scrollbar for Chrome/Safari/Opera */
-        }
-        
-        .tab-button {
-            padding: var(--spacing-sm) var(--spacing-md);
-            color: var(--text-secondary);
-            border-bottom: 2px solid transparent;
-            transition: color var(--transition-fast), border-color var(--transition-fast);
-            white-space: nowrap;
-        }
-        
-        .tab-button.active {
-            color: var(--text-primary);
-            border-bottom: 2px solid var(--accent);
-        }
-        
-        .tab-button:hover {
-            color: var(--text-primary);
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease forwards;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Experience Tab */
-        .experience-item {
-            margin-bottom: var(--spacing-lg);
-            padding-bottom: var(--spacing-lg);
-            border-bottom: 1px solid var(--border);
-            background-color: var(--background);
-            padding: var(--spacing-md);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .experience-item:last-child {
-            border-bottom: none;
-        }
-        
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: var(--spacing-sm);
-            flex-wrap: wrap;
-        }
-        
-        .experience-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .experience-company {
-            color: var(--accent);
-        }
-        
-        .experience-duration {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-        
-        .experience-description {
-            color: var(--text-secondary);
-        }
-        
-        .experience-description ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        
-        .experience-description li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 8px;
-        }
-        
-        .experience-description li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--accent);
-        }
-        
-        /* Projects Tab */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--spacing-md);
-        }
-        
-        .project-card {
-            background-color: var(--background);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-            padding: var(--spacing-md);
-            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .project-title {
-            font-size: 1.1rem;
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-primary);
-        }
-        
-        .project-description {
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-md);
-            flex-grow: 1;
-        }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: auto;
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .project-tag {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            padding: 3px 8px;
-            border-radius: var(--radius-sm);
-            background-color: var(--hover-bg);
-            font-family: var(--font-mono);
-        }
-        
-        .project-links {
-            display: flex;
-            justify-content: flex-start;
-            gap: var(--spacing-sm);
-        }
-        
-        .project-link {
-            color: var(--text-secondary);
-            transition: color var(--transition-fast);
-        }
-        
-        .project-link:hover {
-            color: var(--accent);
-        }
-        
-        /* Blog Tab */
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--spacing-md);
-        }
-        
-        .blog-card {
-            background-color: var(--background);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-            padding: var(--spacing-md);
-            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .blog-title {
-            font-size: 1.1rem;
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-primary);
-        }
-        
-        .blog-date {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .blog-excerpt {
-            color: var(--text-secondary);
-            flex-grow: 1;
-        }
-        
-        .blog-read-more {
-            display: inline-block;
-            margin-top: var(--spacing-sm);
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-        
-        /* Timeline Tab */
-        .timeline {
-            position: relative;
-            margin-left: 20px;
-            padding: var(--spacing-md);
-            background-color: var(--background);
-            border-radius: var(--radius-md);
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 1px;
-            background-color: var(--border);
-            transform: translateX(-50%);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: var(--spacing-lg);
-            padding-left: var(--spacing-lg);
-        }
-        
-        .timeline-dot {
-            position: absolute;
-            left: -10px;
-            top: 5px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            border: 3px solid var(--background);
-            z-index: 1;
-        }
-        
-        .timeline-date {
-            font-weight: 500;
-            margin-bottom: var(--spacing-xs);
-            color: var(--text-primary);
-        }
-        
-        .timeline-content {
-            color: var(--text-secondary);
-        }
-        
-        /* Spotlight/Torch Effect */
-        .spotlight {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.15;
-            background: radial-gradient(
-                circle at var(--x, 50%) var(--y, 50%),
-                rgba(255, 255, 255, 0.3) 0%,
-                transparent 25%
-            );
-            transition: opacity 0.3s;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .portfolio-container {
-                flex-direction: column;
-                margin: 1rem;
-            }
-            
-            .sidebar {
-                max-width: 100%;
-                min-width: 100%;
-                position: relative;
-                height: auto;
-                min-height: auto;
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-                padding-bottom: var(--spacing-xl);
-            }
-            
-            .main-content {
-                min-height: auto;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .profile-section {
-                margin-top: var(--spacing-lg);
-            }
-            
-            .profile-heading {
-                font-size: 2rem;
-            }
-            
-            .projects-grid, .blog-posts {
-                grid-template-columns: 1fr;
-            }
-            
-            .social-links {
-                flex-wrap: wrap;
-            }
-            
-            .experience-header {
-                flex-direction: column;
-            }
-            
-            .experience-duration {
-                margin-top: var(--spacing-xs);
-            }
-        }
-    </style>
-</head>
-<body class="noir-filter">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/lexend" rel="stylesheet" />
+
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
+
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body class="noir-filter">
     <!-- Spotlight/Torch Effect -->
     <div class="spotlight" id="spotlight"></div>
-    
+
+    <div class="cursor" id="cursor"></div>
+
     <div class="portfolio-container">
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
+      <!-- Left Sidebar -->
+      <aside class="sidebar">
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-label="Toggle dark/light mode"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <div class="profile-section">
+          <h1 class="profile-heading">Deepak Surya</h1>
+          <h2 class="profile-title">Frontend Engineer</h2>
+          <p class="profile-bio">
+            Frontend Engineer with 5+ years of experience specializing in React,
+            TypeScript, and scalable UI architectures. Passionate about building
+            reusable component libraries, optimizing performance, and automating
+            UI workflows.
+          </p>
+
+          <div class="social-links">
+            <!-- <a
+              href="#"
+              class="social-link"
+              id="resume-btn"
+              aria-label="Download Resume"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="social-link"
+              id="call-btn"
+              aria-label="Schedule a Call"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                ></path>
+              </svg>
+            </a> -->
+            <a
+              href="https://github.com/dsuryas"
+              target="_blank"
+              class="social-link"
+              aria-label="GitHub"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/deepaksuryas"
+              target="_blank"
+              class="social-link"
+              aria-label="LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- <div class="skills-section">
+          <h3 class="section-title">Skills</h3>
+
+          <div class="skills-category">
+            <h4 class="category-title">Frontend</h4>
+            <ul class="skills-list">
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>React</li>
+              <li>Redux</li>
+              <li>HTML5</li>
+            </ul>
+          </div>
+
+          <div class="skills-category">
+            <h4 class="category-title">Styling</h4>
+            <ul class="skills-list">
+              <li>CSS3</li>
+              <li>Styled Components</li>
+              <li>SCSS</li>
+              <li>Tailwind CSS</li>
+            </ul>
+          </div>
+
+          <div class="skills-category">
+            <h4 class="category-title">Tools</h4>
+            <ul class="skills-list">
+              <li>Storybook</li>
+              <li>Figma</li>
+              <li>Git</li>
+              <li>Webpack</li>
+            </ul>
+          </div>
+
+          <div class="skills-category">
+            <h4 class="category-title">Architecture</h4>
+            <ul class="skills-list">
+              <li>Design Systems</li>
+              <li>UI Architecture</li>
+              <li>Component Libraries</li>
+              <li>Performance Optimization</li>
+            </ul>
+          </div>
+
+          <div class="skills-category">
+            <h4 class="category-title">Advanced</h4>
+            <ul class="skills-list">
+              <li>LLMs & Generative AI</li>
+              <li>API Integration</li>
+              <li>Async Operations</li>
+            </ul>
+          </div>
+        </div> -->
+
+        <div class="skills-section">
+          <h3 class="section-title">Skills</h3>
+
+          <table class="skills-table">
+            <tr>
+              <td>Frontend</td>
+              <td>React, Redux, React-Native-Web, TypeScript, Monorepo</td>
+            </tr>
+            <tr>
+              <td>Backend</td>
+              <td>JavaScript, Express</td>
+            </tr>
+            <tr>
+              <td>Styling</td>
+              <td>Styled Components, SCSS, Tailwind CSS, Shadcn UI</td>
+            </tr>
+            <tr>
+              <td>Docs</td>
+              <td>Storybook, Swagger</td>
+            </tr>
+            <!-- <tr>
+              <td>Arch</td>
+              <td>
+                Design Systems, Component Libraries, Performance Optimization
+              </td>
+            </tr> -->
+            <tr>
+              <td>AI</td>
+              <td>LLMs & Generative AI</td>
+            </tr>
+          </table>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <div class="tabs-container">
+          <div class="tabs-header">
+            <button class="tab-button active" data-tab="experience">
+              Experience
             </button>
-            
-            <div class="profile-section">
-                <h1 class="profile-heading">Deepak Surya</h1>
-                <h2 class="profile-title">Frontend Engineer</h2>
-                <p class="profile-bio">
-                    Frontend Engineer with 5+ years of experience specializing in React, TypeScript, and scalable UI architectures. Passionate about building reusable component libraries, optimizing performance, and automating UI workflows.
+            <button class="tab-button" data-tab="projects">Projects</button>
+            <button class="tab-button" data-tab="blog">Blog</button>
+            <button class="tab-button" data-tab="timeline">Timeline</button>
+          </div>
+
+          <!-- Experience Tab -->
+          <div class="tab-content active" id="experience">
+            <div class="experience-item">
+              <div class="experience-header">
+                <h3 class="experience-title">
+                  Senior Software Engineer
+                  <span class="experience-company"
+                    >@ Yubi (Formerly CredAvenue)</span
+                  >
+                </h3>
+                <span class="experience-duration">July 2021 - Present</span>
+              </div>
+              <div class="experience-description">
+                <ul>
+                  <li>
+                    Developed and owned the onboarding and profile completion
+                    modules for CreditRating, integrating Notion-style
+                    auto-save, which optimized user experience and sped up
+                    onboarding.
+                  </li>
+                  <li>
+                    Built Phoenix Codie, a Figma-to-React converter that reduced
+                    developer coding effort by 70-80%, enabling teams to go from
+                    idea to production in a week.
+                  </li>
+                  <li>
+                    Leveraged LLMs and Generative AI for automated code
+                    generation, improving efficiency and reducing manual effort.
+                  </li>
+                  <li>
+                    Engineered core design system components (modals, data
+                    tables, forms) ensuring accessibility, reusability, and
+                    scalability.
+                  </li>
+                  <li>
+                    Implemented an atomic design system using Storybook and
+                    Figma, enhancing UI consistency across applications.
+                  </li>
+                  <li>
+                    Established frontend coding standards, branching strategies,
+                    and PR templates for maintainable, high-quality code.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="experience-item">
+              <div class="experience-header">
+                <h3 class="experience-title">
+                  Software Engineer
+                  <span class="experience-company">@ MonkeyCap.com</span>
+                </h3>
+                <span class="experience-duration"
+                  >January 2020 - June 2021</span
+                >
+              </div>
+              <div class="experience-description">
+                <ul>
+                  <li>
+                    Led frontend and backend modules for user account
+                    management, collaborating with enterprise architects to
+                    revamp the customer management system.
+                  </li>
+                  <li>
+                    Implemented responsive web designs ensuring optimal user
+                    experience across all devices.
+                  </li>
+                  <li>
+                    Worked closely with UI/UX designers to translate design
+                    mockups into functional web applications.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="experience-item">
+              <div class="experience-header">
+                <h3 class="experience-title">
+                  Software Engineer
+                  <span class="experience-company">@ Finoptiz Infotech</span>
+                </h3>
+                <span class="experience-duration"
+                  >December 2018 - October 2019</span
+                >
+              </div>
+              <div class="experience-description">
+                <ul>
+                  <li>
+                    Developed and maintained web applications for a top-tier
+                    automotive client, enhancing brand presence and sales.
+                  </li>
+                  <li>
+                    Collaborated with cross-functional teams to deliver
+                    high-quality web solutions.
+                  </li>
+                  <li>
+                    Participated in code reviews and implemented best practices
+                    for web development.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projects Tab -->
+          <div class="tab-content" id="projects">
+            <div class="projects-grid">
+              <div class="project-card">
+                <h3 class="project-title">Phoenix Codie</h3>
+                <p class="project-description">
+                  A Figma-to-React converter tool that significantly reduces
+                  frontend development time by 70-80%. This tool enables teams
+                  to go from design to production in a week by automating the
+                  component creation process.
                 </p>
-                
-                <div class="social-links">
-                    <a href="#" class="social-link" id="resume-btn" aria-label="Download Resume">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link" id="call-btn" aria-label="Schedule a Call">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                    </a>
-                    <a href="https://github.com/DeepakSuryaS" target="_blank" class="social-link" aria-label="GitHub">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                    </a>
-                    <a href="https://linkedin.com/in/deepaksuryas" target="_blank" class="social-link" aria-label="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
+                <div class="project-tags">
+                  <span class="project-tag">React</span>
+                  <span class="project-tag">TypeScript</span>
+                  <span class="project-tag">Figma API</span>
+                  <span class="project-tag">Node.js</span>
                 </div>
+                <div class="project-links">
+                  <a
+                    href="#"
+                    class="project-link"
+                    target="_blank"
+                    aria-label="GitHub Repository"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="project-link"
+                    target="_blank"
+                    aria-label="Live Demo"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                      ></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-title">Netflix Clone</h3>
+                <p class="project-description">
+                  A Netflix-like web app with authentication, profile
+                  management, and video streaming. Built with React, Firebase,
+                  Styled Components, and React Router.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">React</span>
+                  <span class="project-tag">Firebase</span>
+                  <span class="project-tag">Styled Components</span>
+                  <span class="project-tag">React Router</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="#"
+                    class="project-link"
+                    target="_blank"
+                    aria-label="GitHub Repository"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="project-link"
+                    target="_blank"
+                    aria-label="Live Demo"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                      ></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-title">CL5 Automotives</h3>
+                <p class="project-description">
+                  A full-fledged inventory management and admin dashboard system
+                  for an automotive company using React, Material UI, and MySQL.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">React</span>
+                  <span class="project-tag">Material UI</span>
+                  <span class="project-tag">MySQL</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="#"
+                    class="project-link"
+                    target="_blank"
+                    aria-label="GitHub Repository"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="project-link"
+                    target="_blank"
+                    aria-label="Live Demo"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                      ></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-card">
+                <h3 class="project-title">Collective Decision-Making System</h3>
+                <p class="project-description">
+                  A peer-to-peer blockchain-based decision-making system built
+                  with Ethereum, Solidity, and IPFS.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Ethereum</span>
+                  <span class="project-tag">Solidity</span>
+                  <span class="project-tag">IPFS</span>
+                  <span class="project-tag">React</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="#"
+                    class="project-link"
+                    target="_blank"
+                    aria-label="GitHub Repository"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="project-link"
+                    target="_blank"
+                    aria-label="Live Demo"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                      ></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
-            
-            <div class="skills-section">
-                <h3 class="section-title">Skills</h3>
-                
-                <div class="skills-category">
-                    <h4 class="category-title">Frontend</h4>
-                    <ul class="skills-list">
-                        <li>JavaScript</li>
-                        <li>TypeScript</li>
-                        <li>React</li>
-                        <li>Redux</li>
-                        <li>HTML5</li>
-                    </ul>
-                </div>
-                
-                <div class="skills-category">
-                    <h4 class="category-title">Styling</h4>
-                    <ul class="skills-list">
-                        <li>CSS3</li>
-                        <li>Styled Components</li>
-                        <li>SCSS</li>
-                        <li>Tailwind CSS</li>
-                    </ul>
-                </div>
-                
-                <div class="skills-category">
-                    <h4 class="category-title">Tools</h4>
-                    <ul class="skills-list">
-                        <li>Storybook</li>
-                        <li>Figma</li>
-                        <li>Git</li>
-                        <li>Webpack</li>
-                    </ul>
-                </div>
-                
-                <div class="skills-category">
-                    <h4 class="category-title">Architecture</h4>
-                    <ul class="skills-list">
-                        <li>Design Systems</li>
-                        <li>UI Architecture</li>
-                        <li>Component Libraries</li>
-                        <li>Performance Optimization</li>
-                    </ul>
-                </div>
-                
-                <div class="skills-category">
-                    <h4 class="category-title">Advanced</h4>
-                    <ul class="skills-list">
-                        <li>LLMs & Generative AI</li>
-                        <li>API Integration</li>
-                        <li>Async Operations</li>
-                    </ul>
-                </div>
+          </div>
+
+          <!-- Blog Tab -->
+          <div class="tab-content" id="blog">
+            <div class="blog-posts">
+              <div class="blog-card">
+                <h3 class="blog-title">Building a Figma-to-React Converter</h3>
+                <p class="blog-date">Oct 14, 2023</p>
+                <p class="blog-excerpt">
+                  In this article, I share my journey of building Phoenix Codie,
+                  a tool that converts Figma designs directly into React
+                  components, reducing frontend development time by 70-80%.
+                </p>
+                <a href="#" class="blog-read-more">Read More →</a>
+              </div>
+
+              <div class="blog-card">
+                <h3 class="blog-title">
+                  Leveraging LLMs for Frontend Development
+                </h3>
+                <p class="blog-date">Sep 02, 2023</p>
+                <p class="blog-excerpt">
+                  Explore how I've been using Large Language Models to automate
+                  code generation and enhance frontend development workflows.
+                </p>
+                <a href="#" class="blog-read-more">Read More →</a>
+              </div>
+
+              <div class="blog-card">
+                <h3 class="blog-title">Design Systems: A Practical Guide</h3>
+                <p class="blog-date">Aug 15, 2023</p>
+                <p class="blog-excerpt">
+                  Learn how to implement and maintain a scalable design system
+                  that enhances UI consistency across multiple applications.
+                </p>
+                <a href="#" class="blog-read-more">Read More →</a>
+              </div>
+
+              <div class="blog-card">
+                <h3 class="blog-title">Optimizing React Performance</h3>
+                <p class="blog-date">Jul 26, 2023</p>
+                <p class="blog-excerpt">
+                  Practical strategies and techniques for optimizing React
+                  applications for better performance and user experience.
+                </p>
+                <a href="#" class="blog-read-more">Read More →</a>
+              </div>
             </div>
-        </aside>
-        
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <div class="tabs-container">
-                <div class="tabs-header">
-                    <button class="tab-button active" data-tab="experience">Experience</button>
-                    <button class="tab-button" data-tab="projects">Projects</button>
-                    <button class="tab-button" data-tab="blog">Blog</button>
-                    <button class="tab-button" data-tab="timeline">Timeline</button>
+          </div>
+
+          <!-- Timeline Tab -->
+          <div class="tab-content" id="timeline">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">July 2021 - Present</div>
+                <div class="timeline-content">
+                  <strong
+                    >Senior Software Engineer at Yubi (Formerly
+                    CredAvenue)</strong
+                  >
+                  <p>
+                    Leading frontend development for multiple products, built
+                    Phoenix Codie, and established design systems.
+                  </p>
                 </div>
-                
-                <!-- Experience Tab -->
-                <div class="tab-content active" id="experience">
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Senior Software Engineer <span class="experience-company">@ Yubi (Formerly CredAvenue)</span></h3>
-                            <span class="experience-duration">July 2021 - Present</span>
-                        </div>
-                        <div class="experience-description">
-                            <ul>
-                                <li>Developed and owned the onboarding and profile completion modules for CreditRating, integrating Notion-style auto-save, which optimized user experience and sped up onboarding.</li>
-                                <li>Built Phoenix Codie, a Figma-to-React converter that reduced developer coding effort by 70-80%, enabling teams to go from idea to production in a week.</li>
-                                <li>Leveraged LLMs and Generative AI for automated code generation, improving efficiency and reducing manual effort.</li>
-                                <li>Engineered core design system components (modals, data tables, forms) ensuring accessibility, reusability, and scalability.</li>
-                                <li>Implemented an atomic design system using Storybook and Figma, enhancing UI consistency across applications.</li>
-                                <li>Established frontend coding standards, branching strategies, and PR templates for maintainable, high-quality code.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Software Engineer <span class="experience-company">@ MonkeyCap.com</span></h3>
-                            <span class="experience-duration">January 2020 - June 2021</span>
-                        </div>
-                        <div class="experience-description">
-                            <ul>
-                                <li>Led frontend and backend modules for user account management, collaborating with enterprise architects to revamp the customer management system.</li>
-                                <li>Implemented responsive web designs ensuring optimal user experience across all devices.</li>
-                                <li>Worked closely with UI/UX designers to translate design mockups into functional web applications.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Software Engineer <span class="experience-company">@ Finoptiz Infotech</span></h3>
-                            <span class="experience-duration">December 2018 - October 2019</span>
-                        </div>
-                        <div class="experience-description">
-                            <ul>
-                                <li>Developed and maintained web applications for a top-tier automotive client, enhancing brand presence and sales.</li>
-                                <li>Collaborated with cross-functional teams to deliver high-quality web solutions.</li>
-                                <li>Participated in code reviews and implemented best practices for web development.</li>
-                            </ul>
-                        </div>
-                    </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">January 2020 - June 2021</div>
+                <div class="timeline-content">
+                  <strong>Software Engineer at MonkeyCap.com</strong>
+                  <p>
+                    Led frontend and backend modules for user account
+                    management.
+                  </p>
                 </div>
-                
-                <!-- Projects Tab -->
-                <div class="tab-content" id="projects">
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <h3 class="project-title">Phoenix Codie</h3>
-                            <p class="project-description">
-                                A Figma-to-React converter tool that significantly reduces frontend development time by 70-80%. This tool enables teams to go from design to production in a week by automating the component creation process.
-                            </p>
-                            <div class="project-tags">
-                                <span class="project-tag">React</span>
-                                <span class="project-tag">TypeScript</span>
-                                <span class="project-tag">Figma API</span>
-                                <span class="project-tag">Node.js</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" aria-label="GitHub Repository">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link" target="_blank" aria-label="Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <h3 class="project-title">Netflix Clone</h3>
-                            <p class="project-description">
-                                A Netflix-like web app with authentication, profile management, and video streaming. Built with React, Firebase, Styled Components, and React Router.
-                            </p>
-                            <div class="project-tags">
-                                <span class="project-tag">React</span>
-                                <span class="project-tag">Firebase</span>
-                                <span class="project-tag">Styled Components</span>
-                                <span class="project-tag">React Router</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" aria-label="GitHub Repository">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link" target="_blank" aria-label="Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <h3 class="project-title">CL5 Automotives</h3>
-                            <p class="project-description">
-                                A full-fledged inventory management and admin dashboard system for an automotive company using React, Material UI, and MySQL.
-                            </p>
-                            <div class="project-tags">
-                                <span class="project-tag">React</span>
-                                <span class="project-tag">Material UI</span>
-                                <span class="project-tag">MySQL</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" aria-label="GitHub Repository">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link" target="_blank" aria-label="Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <h3 class="project-title">Collective Decision-Making System</h3>
-                            <p class="project-description">
-                                A peer-to-peer blockchain-based decision-making system built with Ethereum, Solidity, and IPFS.
-                            </p>
-                            <div class="project-tags">
-                                <span class="project-tag">Ethereum</span>
-                                <span class="project-tag">Solidity</span>
-                                <span class="project-tag">IPFS</span>
-                                <span class="project-tag">React</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link" target="_blank" aria-label="GitHub Repository">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link" target="_blank" aria-label="Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">December 2018 - October 2019</div>
+                <div class="timeline-content">
+                  <strong>Software Engineer at Finoptiz Infotech</strong>
+                  <p>Developed web applications for automotive clients.</p>
                 </div>
-                
-                <!-- Blog Tab -->
-                <div class="tab-content" id="blog">
-                    <div class="blog-posts">
-                        <div class="blog-card">
-                            <h3 class="blog-title">Building a Figma-to-React Converter</h3>
-                            <p class="blog-date">Oct 14, 2023</p>
-                            <p class="blog-excerpt">
-                                In this article, I share my journey of building Phoenix Codie, a tool that converts Figma designs directly into React components, reducing frontend development time by 70-80%.
-                            </p>
-                            <a href="#" class="blog-read-more">Read More →</a>
-                        </div>
-                        
-                        <div class="blog-card">
-                            <h3 class="blog-title">Leveraging LLMs for Frontend Development</h3>
-                            <p class="blog-date">Sep 02, 2023</p>
-                            <p class="blog-excerpt">
-                                Explore how I've been using Large Language Models to automate code generation and enhance frontend development workflows.
-                            </p>
-                            <a href="#" class="blog-read-more">Read More →</a>
-                        </div>
-                        
-                        <div class="blog-card">
-                            <h3 class="blog-title">Design Systems: A Practical Guide</h3>
-                            <p class="blog-date">Aug 15, 2023</p>
-                            <p class="blog-excerpt">
-                                Learn how to implement and maintain a scalable design system that enhances UI consistency across multiple applications.
-                            </p>
-                            <a href="#" class="blog-read-more">Read More →</a>
-                        </div>
-                        
-                        <div class="blog-card">
-                            <h3 class="blog-title">Optimizing React Performance</h3>
-                            <p class="blog-date">Jul 26, 2023</p>
-                            <p class="blog-excerpt">
-                                Practical strategies and techniques for optimizing React applications for better performance and user experience.
-                            </p>
-                            <a href="#" class="blog-read-more">Read More →</a>
-                        </div>
-                    </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2018</div>
+                <div class="timeline-content">
+                  <strong>Started Career in Web Development</strong>
+                  <p>
+                    Began journey as a frontend developer, focusing on HTML,
+                    CSS, and JavaScript.
+                  </p>
                 </div>
-                
-                <!-- Timeline Tab -->
-                <div class="tab-content" id="timeline">
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">July 2021 - Present</div>
-                            <div class="timeline-content">
-                                <strong>Senior Software Engineer at Yubi (Formerly CredAvenue)</strong>
-                                <p>Leading frontend development for multiple products, built Phoenix Codie, and established design systems.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">January 2020 - June 2021</div>
-                            <div class="timeline-content">
-                                <strong>Software Engineer at MonkeyCap.com</strong>
-                                <p>Led frontend and backend modules for user account management.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">December 2018 - October 2019</div>
-                            <div class="timeline-content">
-                                <strong>Software Engineer at Finoptiz Infotech</strong>
-                                <p>Developed web applications for automotive clients.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">2018</div>
-                            <div class="timeline-content">
-                                <strong>Started Career in Web Development</strong>
-                                <p>Began journey as a frontend developer, focusing on HTML, CSS, and JavaScript.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">2014 - 2018</div>
-                            <div class="timeline-content">
-                                <strong>Bachelor's Degree in Computer Science</strong>
-                                <p>Completed undergraduate studies with a focus on software development.</p>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2014 - 2018</div>
+                <div class="timeline-content">
+                  <strong>Bachelor's Degree in Computer Science</strong>
+                  <p>
+                    Completed undergraduate studies with a focus on software
+                    development.
+                  </p>
                 </div>
+              </div>
             </div>
-        </main>
+          </div>
+        </div>
+      </main>
     </div>
-    
-    <script>
-        // DOM Elements
-        const themeToggle = document.getElementById('theme-toggle');
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const spotlight = document.getElementById('spotlight');
-        const resumeBtn = document.getElementById('resume-btn');
-        const callBtn = document.getElementById('call-btn');
-        
-        // Theme Toggle
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-            
-            // Update theme toggle icon
-            const isLightTheme = document.body.classList.contains('light-theme');
-            
-            if (isLightTheme) {
-                themeToggle.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                `;
-            } else {
-                themeToggle.innerHTML = `
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                `;
-            }
-            
-            // Save theme preference
-            localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
-        });
-        
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            document.body.classList.add('light-theme');
-            themeToggle.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            `;
-        }
-        
-        // Tab Switching
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all tabs
-                tabButtons.forEach(tab => tab.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                button.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-        
-        // Spotlight/Torch Effect
-        document.addEventListener('mousemove', e => {
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
-            
-            spotlight.style.setProperty('--x', `${x}%`);
-            spotlight.style.setProperty('--y', `${y}%`);
-        });
-        
-        // Resume Download
-        resumeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Resume downloading...');
-            // In a real implementation, you would link to an actual resume file
-            // or trigger a download through an API
-        });
-        
-        // Schedule a Call
-        callBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Redirecting to scheduling page...');
-            // In a real implementation, you would redirect to a calendar scheduling tool
-            // like Calendly, Cal.com, etc.
-        });
-    </script>
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>
