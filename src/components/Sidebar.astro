@@ -1,0 +1,229 @@
+---
+// Component for the left sidebar
+---
+
+<aside class="sidebar">
+  <button
+    class="theme-toggle"
+    id="theme-toggle"
+    aria-label="Toggle dark/light mode"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </button>
+
+  <div class="profile-section">
+    <h1 class="profile-heading">Deepak Surya</h1>
+    <h2 class="profile-title">Frontend Engineer</h2>
+    <p class="profile-bio">
+      Frontend Engineer with 5+ years of experience specializing in React,
+      TypeScript, and scalable UI architectures. Passionate about building
+      reusable component libraries, optimizing performance, and automating
+      UI workflows.
+    </p>
+
+    <div class="social-links">
+      <a
+        href="https://github.com/dsuryas"
+        target="_blank"
+        class="social-link"
+        aria-label="GitHub"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+          ></path>
+        </svg>
+      </a>
+      <a
+        href="https://linkedin.com/in/deepaksuryas"
+        target="_blank"
+        class="social-link"
+        aria-label="LinkedIn"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+          ></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <h3 class="section-title">Skills</h3>
+
+    <table class="skills-table">
+      <tr>
+        <td>Frontend</td>
+        <td>React, Redux, React-Native-Web, TypeScript, Monorepo</td>
+      </tr>
+      <tr>
+        <td>Backend</td>
+        <td>JavaScript, Express</td>
+      </tr>
+      <tr>
+        <td>Styling</td>
+        <td>Styled Components, SCSS, Tailwind CSS, Shadcn UI</td>
+      </tr>
+      <tr>
+        <td>Docs</td>
+        <td>Storybook, Swagger</td>
+      </tr>
+      <tr>
+        <td>AI</td>
+        <td>LLMs & Generative AI</td>
+      </tr>
+    </table>
+  </div>
+</aside>
+
+<style>
+  /* Add component-specific styles here if needed */
+  /* Most styles are already in the global CSS */
+
+  .theme-toggle {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-md);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    transition: background-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .theme-toggle:hover {
+    background-color: var(--hover-bg);
+  }
+
+  .profile-section {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .profile-heading {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: -0.5px;
+  }
+
+  .profile-title {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+  }
+
+  .profile-bio {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+  }
+
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+  }
+
+  .social-link:hover {
+    background-color: var(--hover-bg);
+    transform: translateY(-2px);
+  }
+
+  /* Skills Table Styles */
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-md);
+  }
+
+  .skills-table tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skills-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .skills-table td {
+    padding: var(--spacing-sm) 0;
+    vertical-align: top;
+  }
+
+  .skills-table td:first-child {
+    width: 100px;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+
+  .skills-table td:last-child {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+</style>

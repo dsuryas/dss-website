@@ -1,0 +1,94 @@
+---
+export interface Props {
+  title: string;
+  company: string;
+  duration: string;
+  descriptions: string[];
+}
+
+const { title, company, duration, descriptions } = Astro.props;
+---
+
+<div class="experience-item">
+  <div class="experience-header">
+    <h3 class="experience-title">
+      {title}
+      <span class="experience-company">@ {company}</span>
+    </h3>
+    <span class="experience-duration">{duration}</span>
+  </div>
+  <div class="experience-description">
+    <ul>
+      {descriptions.map((description) => <li>{description}</li>)}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .experience-item {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border);
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .experience-item:last-child {
+    border-bottom: none;
+  }
+
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+
+  .experience-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .experience-company {
+    color: var(--accent);
+  }
+
+  .experience-duration {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .experience-description {
+    color: var(--text-secondary);
+  }
+
+  .experience-description ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .experience-description li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .experience-description li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .experience-header {
+      flex-direction: column;
+    }
+
+    .experience-duration {
+      margin-top: var(--spacing-xs);
+    }
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+import { getCollection } from "astro:content";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BlogLayout title={entry.data.title} date={entry.data.date}>
+  <Content />
+</BlogLayout>
+
+<style is:global>
+  /* Blog post styling */
+  .blog-content h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+    color: var(--text-primary);
+  }
+
+  .blog-content h3 {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 1rem 0;
+    color: var(--accent);
+  }
+
+  .blog-content p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .blog-content ul,
+  .blog-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .blog-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-content img {
+    max-width: 100%;
+    border-radius: var(--radius-md);
+    margin: 2rem 0;
+  }
+
+  .blog-content code {
+    font-family: var(--font-mono);
+    background-color: var(--card-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+  }
+
+  .blog-content pre {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .blog-content pre code {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .blog-content blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+</style>

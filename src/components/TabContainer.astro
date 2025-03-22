@@ -1,0 +1,111 @@
+---
+// Tab container component with client-side JavaScript for tab switching
+---
+
+<div class="tabs-container">
+  <div class="tabs-header">
+    <button class="tab-button active" data-tab="experience">
+      Experience
+    </button>
+    <button class="tab-button" data-tab="projects">Projects</button>
+    <button class="tab-button" data-tab="blog">Blog</button>
+    <button class="tab-button" data-tab="timeline">Timeline</button>
+  </div>
+
+  <div class="tab-content active" id="experience">
+    <slot name="experience" />
+  </div>
+
+  <div class="tab-content" id="projects">
+    <slot name="projects" />
+  </div>
+
+  <div class="tab-content" id="blog">
+    <slot name="blog" />
+  </div>
+
+  <div class="tab-content" id="timeline">
+    <slot name="timeline" />
+  </div>
+</div>
+
+<style>
+  .tabs-container {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .tabs-header {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--spacing-lg);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tabs-header::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari/Opera */
+  }
+
+  .tab-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--text-secondary);
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .tab-button.active {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .tab-button:hover {
+    color: var(--text-primary);
+  }
+
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  // Tab switching functionality
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Remove active class from all tabs
+      tabButtons.forEach((tab) => tab.classList.remove("active"));
+      tabContents.forEach((content) => content.classList.remove("active"));
+
+      // Add active class to clicked tab
+      button.classList.add("active");
+
+      // Show corresponding content
+      const tabId = button.getAttribute("data-tab");
+      if (tabId) {
+        const tabContent = document.getElementById(tabId);
+        if (tabContent) {
+          tabContent.classList.add("active");
+        }
+      }
+    });
+  });
+</script>

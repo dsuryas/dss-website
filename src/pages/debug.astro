@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+
+let blogEntries: any = [];
+let error = null;
+
+try {
+  blogEntries = await getCollection("blog");
+} catch (e: any) {
+  error = e?.message;
+}
+---
+
+<html>
+  <head>
+    <title>Blog Debug</title>
+  </head>
+  <body>
+    <h1>Blog Collection Debug</h1>
+    
+    {error && <div style="color: red;">Error: {error}</div>}
+    
+    <h2>Blog Entries Found: {blogEntries.length}</h2>
+    
+    {blogEntries.length > 0 ? (
+      <ul>
+        {blogEntries.map((entry: any) => (
+          <li>
+            <strong>Slug:</strong> {entry.slug}<br>
+            <strong>Title:</strong> {entry.data.title}<br>
+            <strong>Date:</strong> {entry.data.date}<br>
+            <a href={`/blog/${entry.slug}`}>Test Link</a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>No blog entries found.</p>
+    )}
+    
+    <h2>Manual Test Link</h2>
+    <a href="/blog/phoenix-codie">Test Phoenix Codie Link</a>
+  </body>
+</html>

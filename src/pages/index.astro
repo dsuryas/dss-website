@@ -1,11 +1,174 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MainLayout from "../layouts/MainLayout.astro";
+import Sidebar from "../components/Sidebar.astro";
+import TabContainer from "../components/TabContainer.astro";
+import ExperienceItem from "../components/ExperienceItem.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import BlogCard from "../components/BlogCard.astro";
+import TimelineItem from "../components/TimelineItem.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout title="Deepak Surya | Frontend Engineer">
+  <Sidebar />
+  
+  <main class="main-content">
+    <TabContainer>
+      <!-- Experience Tab Content -->
+      <div slot="experience">
+        <ExperienceItem
+          title="Senior Software Engineer"
+          company="Yubi (Formerly CredAvenue)"
+          duration="July 2021 - Present"
+          descriptions={[
+            "Developed and owned the onboarding and profile completion modules for CreditRating, integrating Notion-style auto-save, which optimized user experience and sped up onboarding.",
+            "Built Phoenix Codie, a Figma-to-React converter that reduced developer coding effort by 70-80%, enabling teams to go from idea to production in a week.",
+            "Leveraged LLMs and Generative AI for automated code generation, improving efficiency and reducing manual effort.",
+            "Engineered core design system components (modals, data tables, forms) ensuring accessibility, reusability, and scalability.",
+            "Implemented an atomic design system using Storybook and Figma, enhancing UI consistency across applications.",
+            "Established frontend coding standards, branching strategies, and PR templates for maintainable, high-quality code."
+          ]}
+        />
+        
+        <ExperienceItem
+          title="Software Engineer"
+          company="MonkeyCap.com"
+          duration="January 2020 - June 2021"
+          descriptions={[
+            "Led frontend and backend modules for user account management, collaborating with enterprise architects to revamp the customer management system.",
+            "Implemented responsive web designs ensuring optimal user experience across all devices.",
+            "Worked closely with UI/UX designers to translate design mockups into functional web applications."
+          ]}
+        />
+        
+        <ExperienceItem
+          title="Software Engineer"
+          company="Finoptiz Infotech"
+          duration="December 2018 - October 2019"
+          descriptions={[
+            "Developed and maintained web applications for a top-tier automotive client, enhancing brand presence and sales.",
+            "Collaborated with cross-functional teams to deliver high-quality web solutions.",
+            "Participated in code reviews and implemented best practices for web development."
+          ]}
+        />
+      </div>
+
+      <!-- Projects Tab Content -->
+      <div slot="projects">
+        <div class="projects-grid">
+          <ProjectCard 
+            title="Phoenix Codie"
+            description="A Figma-to-React converter tool that significantly reduces frontend development time by 70-80%. This tool enables teams to go from design to production in a week by automating the component creation process."
+            tags={["React", "TypeScript", "Figma API", "Node.js"]}
+            githubUrl="#"
+            demoUrl="#"
+          />
+          
+          <ProjectCard 
+            title="Netflix Clone"
+            description="A Netflix-like web app with authentication, profile management, and video streaming. Built with React, Firebase, Styled Components, and React Router."
+            tags={["React", "Firebase", "Styled Components", "React Router"]}
+            githubUrl="#"
+            demoUrl="#"
+          />
+          
+          <ProjectCard 
+            title="CL5 Automotives"
+            description="A full-fledged inventory management and admin dashboard system for an automotive company using React, Material UI, and MySQL."
+            tags={["React", "Material UI", "MySQL"]}
+            githubUrl="#"
+            demoUrl="#"
+          />
+          
+          <ProjectCard 
+            title="Collective Decision-Making System"
+            description="A peer-to-peer blockchain-based decision-making system built with Ethereum, Solidity, and IPFS."
+            tags={["Ethereum", "Solidity", "IPFS", "React"]}
+            githubUrl="#"
+            demoUrl="#"
+          />
+        </div>
+      </div>
+
+      <!-- Blog Tab Content -->
+      <div slot="blog">
+        <div class="blog-posts">
+          <BlogCard 
+            title="Building a Figma-to-React Converter"
+            date="Oct 14, 2023"
+            excerpt="In this article, I share my journey of building Phoenix Codie, a tool that converts Figma designs directly into React components, reducing frontend development time by 70-80%."
+            url="/blog/phoenix-codie"
+          />
+          
+          <BlogCard 
+            title="Leveraging LLMs for Frontend Development"
+            date="Sep 02, 2023"
+            excerpt="Explore how I've been using Large Language Models to automate code generation and enhance frontend development workflows."
+            url="/blog/llms-frontend-development"
+          />
+          
+          <BlogCard 
+            title="Design Systems: A Practical Guide"
+            date="Aug 15, 2023"
+            excerpt="Learn how to implement and maintain a scalable design system that enhances UI consistency across multiple applications."
+            url="/blog/design-systems-guide"
+          />
+          
+          <BlogCard 
+            title="Optimizing React Performance"
+            date="Jul 26, 2023"
+            excerpt="Practical strategies and techniques for optimizing React applications for better performance and user experience."
+            url="/blog/optimizing-react-performance"
+          />
+        </div>
+      </div>
+
+      <!-- Timeline Tab Content -->
+      <div slot="timeline">
+        <div class="timeline">
+          <TimelineItem 
+            date="July 2021 - Present"
+            title="Senior Software Engineer at Yubi (Formerly CredAvenue)"
+            description="Leading frontend development for multiple products, built Phoenix Codie, and established design systems."
+          />
+          
+          <TimelineItem 
+            date="January 2020 - June 2021"
+            title="Software Engineer at MonkeyCap.com"
+            description="Led frontend and backend modules for user account management."
+          />
+          
+          <TimelineItem 
+            date="December 2018 - October 2019"
+            title="Software Engineer at Finoptiz Infotech"
+            description="Developed web applications for automotive clients."
+          />
+          
+          <TimelineItem 
+            date="2018"
+            title="Started Career in Web Development"
+            description="Began journey as a frontend developer, focusing on HTML, CSS, and JavaScript."
+          />
+          
+          <TimelineItem 
+            date="2014 - 2018"
+            title="Bachelor's Degree in Computer Science"
+            description="Completed undergraduate studies with a focus on software development."
+          />
+        </div>
+      </div>
+    </TabContainer>
+  </main>
+</MainLayout>
+
+<style>
+  .projects-grid, .blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .timeline {
+    position: relative;
+    padding: var(--spacing-md);
+  }
+</style>

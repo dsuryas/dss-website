@@ -1,0 +1,65 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+
+const allBlogPosts = await getCollection("blog");
+const sortedPosts = allBlogPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<MainLayout title="Blog - Deepak Surya">
+  <div class="blog-index-container">
+    <a href="/" class="back-link">← Back to Portfolio</a>
+    
+    <h1 class="blog-index-title">Blog</h1>
+    
+    <div class="blog-posts-grid">
+      {sortedPosts.map(post => (
+        <BlogCard 
+          title={post.data.title}
+          date={post.data.date}
+          excerpt={post.data.excerpt}
+          url={`/blog/${post.slug}`}
+        />
+      ))}
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .blog-index-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .blog-index-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+  }
+  
+  .blog-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-md);
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .blog-posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

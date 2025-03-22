@@ -1,0 +1,54 @@
+---
+export interface Props {
+  date: string;
+  title: string;
+  description: string;
+}
+
+const { date, title, description } = Astro.props;
+---
+
+<div class="timeline-item">
+  <div class="timeline-dot"></div>
+  <div class="timeline-date">{date}</div>
+  <div class="timeline-content">
+    <strong>{title}</strong>
+    <p>{description}</p>
+  </div>
+</div>
+
+<style>
+  .timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+    padding-left: var(--spacing-lg);
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -10px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    border: 3px solid var(--background);
+    z-index: 1;
+  }
+
+  .timeline-date {
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+  }
+
+  .timeline-content {
+    color: var(--text-secondary);
+  }
+
+  .timeline-content strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+  }
+</style>
