@@ -5,8 +5,8 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   // site: 'https://yoursite.com', // Replace with your actual domain
   // Optional: Use the following if you plan to deploy to Github Pages
-  site: "https://dsuryas.github.io/dss-website",
-  base: "/dss-portfolio",
+  site: "https://dsuryas.github.io/",
+  base: "/dss-website",
   integrations: [],
   markdown: {
     shikiConfig: {
