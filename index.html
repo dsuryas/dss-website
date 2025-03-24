@@ -26,39 +26,38 @@
     <!-- Spotlight/Torch Effect -->
     <div class="spotlight" id="spotlight"></div>
 
-    <div class="cursor" id="cursor"></div>
+    <!-- Global Theme Toggle -->
+    <button
+      class="global-theme-toggle"
+      id="global-theme-toggle"
+      aria-label="Toggle dark/light mode"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
 
     <div class="portfolio-container">
       <!-- Left Sidebar -->
       <aside class="sidebar">
-        <button
-          class="theme-toggle"
-          id="theme-toggle"
-          aria-label="Toggle dark/light mode"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-        </button>
-
         <div class="profile-section">
           <h1 class="profile-heading">Deepak Surya</h1>
           <h2 class="profile-title">Frontend Engineer</h2>
@@ -70,50 +69,6 @@
           </p>
 
           <div class="social-links">
-            <!-- <a
-              href="#"
-              class="social-link"
-              id="resume-btn"
-              aria-label="Download Resume"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-            </a>
-            <a
-              href="#"
-              class="social-link"
-              id="call-btn"
-              aria-label="Schedule a Call"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                ></path>
-              </svg>
-            </a> -->
             <a
               href="https://github.com/dsuryas"
               target="_blank"
@@ -163,60 +118,6 @@
           </div>
         </div>
 
-        <!-- <div class="skills-section">
-          <h3 class="section-title">Skills</h3>
-
-          <div class="skills-category">
-            <h4 class="category-title">Frontend</h4>
-            <ul class="skills-list">
-              <li>JavaScript</li>
-              <li>TypeScript</li>
-              <li>React</li>
-              <li>Redux</li>
-              <li>HTML5</li>
-            </ul>
-          </div>
-
-          <div class="skills-category">
-            <h4 class="category-title">Styling</h4>
-            <ul class="skills-list">
-              <li>CSS3</li>
-              <li>Styled Components</li>
-              <li>SCSS</li>
-              <li>Tailwind CSS</li>
-            </ul>
-          </div>
-
-          <div class="skills-category">
-            <h4 class="category-title">Tools</h4>
-            <ul class="skills-list">
-              <li>Storybook</li>
-              <li>Figma</li>
-              <li>Git</li>
-              <li>Webpack</li>
-            </ul>
-          </div>
-
-          <div class="skills-category">
-            <h4 class="category-title">Architecture</h4>
-            <ul class="skills-list">
-              <li>Design Systems</li>
-              <li>UI Architecture</li>
-              <li>Component Libraries</li>
-              <li>Performance Optimization</li>
-            </ul>
-          </div>
-
-          <div class="skills-category">
-            <h4 class="category-title">Advanced</h4>
-            <ul class="skills-list">
-              <li>LLMs & Generative AI</li>
-              <li>API Integration</li>
-              <li>Async Operations</li>
-            </ul>
-          </div>
-        </div> -->
-
         <div class="skills-section">
           <h3 class="section-title">Skills</h3>
 
@@ -237,12 +138,6 @@
               <td>Docs</td>
               <td>Storybook, Swagger</td>
             </tr>
-            <!-- <tr>
-              <td>Arch</td>
-              <td>
-                Design Systems, Component Libraries, Performance Optimization
-              </td>
-            </tr> -->
             <tr>
               <td>AI</td>
               <td>LLMs & Generative AI</td>
@@ -373,20 +268,21 @@
               <div class="project-card">
                 <h3 class="project-title">Phoenix Codie</h3>
                 <p class="project-description">
-                  A Figma-to-React converter tool that significantly reduces
-                  frontend development time by 70-80%. This tool enables teams
-                  to go from design to production in a week by automating the
-                  component creation process.
+                  A Figma-to-React converter that reduced frontend development
+                  time by 70-80%. This tool enables teams to go from design to
+                  production in a week by analyzing Figma layouts and generating
+                  optimized React components.
                 </p>
                 <div class="project-tags">
                   <span class="project-tag">React</span>
                   <span class="project-tag">TypeScript</span>
                   <span class="project-tag">Figma API</span>
                   <span class="project-tag">Node.js</span>
+                  <span class="project-tag">AI</span>
                 </div>
                 <div class="project-links">
                   <a
-                    href="#"
+                    href="https://github.com/dsuryas/phoenix-codie"
                     class="project-link"
                     target="_blank"
                     aria-label="GitHub Repository"
@@ -408,10 +304,9 @@
                     </svg>
                   </a>
                   <a
-                    href="#"
+                    href="projects/phoenix-codie.html"
                     class="project-link"
-                    target="_blank"
-                    aria-label="Live Demo"
+                    aria-label="View Project"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -626,14 +521,18 @@
           <div class="tab-content" id="blog">
             <div class="blog-posts">
               <div class="blog-card">
-                <h3 class="blog-title">Building a Figma-to-React Converter</h3>
-                <p class="blog-date">Oct 14, 2023</p>
+                <h3 class="blog-title">
+                  Building Phoenix Codie: A Figma-to-React Code Generator
+                </h3>
+                <p class="blog-date">Mar 15, 2023</p>
                 <p class="blog-excerpt">
-                  In this article, I share my journey of building Phoenix Codie,
-                  a tool that converts Figma designs directly into React
-                  components, reducing frontend development time by 70-80%.
+                  Learn how I built Phoenix Codie, a tool that converts Figma
+                  designs directly into React components, reducing frontend
+                  development time by 70-80%.
                 </p>
-                <a href="#" class="blog-read-more">Read More →</a>
+                <a href="projects/phoenix-codie.html" class="blog-read-more"
+                  >Read More →</a
+                >
               </div>
 
               <div class="blog-card">
@@ -673,6 +572,19 @@
           <!-- Timeline Tab -->
           <div class="tab-content" id="timeline">
             <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2023</div>
+                <div class="timeline-content">
+                  <strong>Built Phoenix Codie at Yubi</strong>
+                  <p>
+                    Developed a Figma-to-React converter that reduced frontend
+                    development time by 70-80% and enabled faster product
+                    delivery.
+                  </p>
+                </div>
+              </div>
+
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">July 2021 - Present</div>

@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phoenix Codie - Deepak Surya</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/lexend" rel="stylesheet" />
+
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
+
+    <link href="../styles.css" rel="stylesheet" />
+    <style>
+      .blog-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .blog-header {
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .blog-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .blog-date {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+      }
+
+      .blog-content {
+        line-height: 1.8;
+      }
+
+      .blog-content h2 {
+        font-size: 1.8rem;
+        margin: 2rem 0 1rem 0;
+        color: var(--text-primary);
+      }
+
+      .blog-content h3 {
+        font-size: 1.4rem;
+        margin: 1.5rem 0 1rem 0;
+        color: var(--accent);
+      }
+
+      .blog-content p {
+        margin-bottom: 1.5rem;
+        color: var(--text-secondary);
+      }
+
+      .blog-content ul,
+      .blog-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        color: var(--text-secondary);
+      }
+
+      .blog-content li {
+        margin-bottom: 0.5rem;
+      }
+
+      .blog-content img {
+        max-width: 100%;
+        border-radius: var(--radius-md);
+        margin: 2rem 0;
+      }
+
+      .blog-content code {
+        font-family: var(--font-mono);
+        background-color: var(--card-bg);
+        padding: 0.2rem 0.4rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.9rem;
+      }
+
+      .blog-content pre {
+        background-color: var(--card-bg);
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      .blog-content pre code {
+        background-color: transparent;
+        padding: 0;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin: 2rem 0;
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+
+      .image-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 2rem 0;
+      }
+
+      .image-container img {
+        max-width: 48%;
+        border-radius: var(--radius-md);
+      }
+
+      .arrow-icon {
+        font-size: 2rem;
+        color: var(--accent);
+      }
+
+      .highlight {
+        color: var(--accent);
+        font-weight: 500;
+      }
+
+      .code-block {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .tech-item {
+        background-color: var(--card-bg);
+        color: var(--text-secondary);
+        padding: 0.5rem 1rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.85rem;
+        font-family: var(--font-mono);
+      }
+
+      .feature-card {
+        background-color: var(--card-bg);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-left: 3px solid var(--accent);
+      }
+
+      .feature-card h4 {
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+        font-size: 1.2rem;
+      }
+
+      .feature-card p {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body class="noir-filter">
+    <!-- Spotlight/Torch Effect -->
+    <div class="spotlight" id="spotlight"></div>
+
+    <div class="cursor" id="cursor"></div>
+
+    <div class="blog-container">
+      <a href="../index.html" class="back-link">← Back to Portfolio</a>
+
+      <div class="blog-header">
+        <h1 class="blog-title">
+          Building Phoenix Codie: A Chill Figma-to-React Code Generator for
+          Design Systems
+        </h1>
+        <p class="blog-date">March 15, 2023</p>
+      </div>
+
+      <div class="blog-content">
+        <h2>Project Overview</h2>
+        <p>
+          Phoenix Codie is a sophisticated tool that automates the conversion of
+          Figma designs into production-ready React code. It serves as a bridge
+          between designers and developers, significantly reducing the time and
+          effort required to transform design mockups into functional
+          components.
+        </p>
+
+        <img
+          src="https://via.placeholder.com/800x400"
+          alt="Phoenix Codie Interface"
+        />
+
+        <p>
+          Every product team knows the struggle: you've crafted a drop-dead
+          gorgeous component in Figma, but then reality hits and you realise
+          that turning it into actual code is like assembling IKEA furniture
+          without a manual. Hours vanish, your sanity takes a hit, and somehow,
+          your beautiful design looks like it lost a fight with CSS. And don't
+          even get me started on naming variables—because somehow,
+          <code>containerDivFinal_Final2</code> always sneaks in. This gap
+          between design and development has been a major speed bump in shipping
+          polished products efficiently.
+        </p>
+
+        <p>
+          Enter Phoenix Codie - the solution to this chaos. It accepts Figma
+          URLs or file keys, extracts design structure through the Figma API,
+          and generates corresponding React components with matching styles. No
+          "why is this misaligned?" breakdowns, no extra drama - just clean,
+          production-ready code that actually works.
+        </p>
+
+        <p>
+          Let me spill some tea on how I built it, the "fun" (<em
+            >read: rage-inducing</em
+          >) roadblocks I hit, and the facepalms I collected along the way. If
+          you're a dev, a designer, or just curious about this cool tech mashup,
+          buckle up, this is gonna be a ride!
+        </p>
+
+        <h2>The Big Problem</h2>
+        <p>
+          So, here's the tea: converting Figma designs into code is slow and
+          frustrating. It's not as fun as debugging a production issue on a
+          Friday night. Developers spend hours figuring out:
+        </p>
+        <ul>
+          <li>
+            How to translate Figma layouts into CSS without summoning the dark
+            forces of <code>!important</code>.
+          </li>
+          <li>Which props to use and where.</li>
+          <li>
+            Keeping components reusable and design-system-approved (because
+            future you will 100% judge past you).
+          </li>
+        </ul>
+
+        <p>
+          And let's be honest—most design-to-code tools give you meh output. You
+          get some messy HTML/CSS that feels outdated, like it's stuck in 2010.
+          No React vibes, no reusable components, and definitely no love for
+          design systems.
+        </p>
+
+        <h2>Key Features</h2>
+
+        <div class="feature-card">
+          <h4>Design-to-Code Conversion</h4>
+          <p>
+            Phoenix Codie accepts Figma file URLs or file keys, intelligently
+            identifies components from Figma designs, detects layout patterns,
+            and accurately extracts styling properties.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h4>User Interface</h4>
+          <p>
+            Features a split-panel view with generated React markup and styles,
+            real-time preview of components, version history tracking, and
+            support for both dark and light modes.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h4>Code Enhancement</h4>
+          <p>
+            Includes an AI-assisted chat interface for refinement, supports
+            direct download of generated code, offers framework conversion
+            capabilities, and provides tools for integrating API endpoints or
+            JSON data.
+          </p>
+        </div>
+
+        <div class="tech-stack">
+          <span class="tech-item">React</span>
+          <span class="tech-item">Express.js</span>
+          <span class="tech-item">Figma API</span>
+          <span class="tech-item">Tailwind CSS</span>
+          <span class="tech-item">LLM Integration</span>
+          <span class="tech-item">Webpack</span>
+        </div>
+
+        <h2>The Plan: Smarter, Not Harder</h2>
+        <p>
+          We wanted Phoenix Codie to be a specialist, not just another
+          half-baked, "look-ma-I-exported-HTML" tool. Phoenix Codie employs a
+          client-server architecture with several specialized subsystems:
+        </p>
+
+        <img
+          src="https://via.placeholder.com/800x400"
+          alt="Phoenix Codie Architecture"
+        />
+
+        <p>
+          The plan involved building a sophisticated system with these key
+          components:
+        </p>
+
+        <ol>
+          <li>
+            <strong>Client Application:</strong> React-based frontend for user
+            interaction and code display
+          </li>
+          <li>
+            <strong>API Server:</strong> Express.js backend that communicates
+            with the Figma API
+          </li>
+          <li>
+            <strong>Parsing Engine:</strong> System to transform Figma API
+            responses into an intermediate representation
+          </li>
+          <li>
+            <strong>Code Generation System:</strong> Converts the intermediate
+            representation into React components
+          </li>
+          <li>
+            <strong>LLM Service:</strong> Handles AI-assisted code refinement
+            through a chat interface
+          </li>
+        </ol>
+
+        <p>The typical data flow works like this:</p>
+
+        <ol>
+          <li>User inputs a Figma URL through the web interface</li>
+          <li>Server extracts the file key and node ID from the URL</li>
+          <li>
+            Server requests design data from the Figma API using authentication
+            tokens
+          </li>
+          <li>Design data is processed through the parsing engine</li>
+          <li>
+            Component structures and styles are extracted and mapped to React
+            equivalents
+          </li>
+          <li>
+            Generated code is sent back to the client for display and preview
+          </li>
+          <li>User can refine the code via direct editing or AI assistance</li>
+          <li>Final code can be downloaded or saved for later use</li>
+        </ol>
+
+        <h2>The Alchemist Engine - The Execution</h2>
+        <p>
+          The heart of Phoenix Codie lies in its Alchemist engine — a
+          sophisticated system for analyzing and transforming Figma designs into
+          React components. Let me give you the lowdown on how this powerhouse
+          runs the show.
+        </p>
+
+        <h3>Core Architecture</h3>
+        <p>
+          The Alchemist engine consists of several key systems working in
+          harmony:
+        </p>
+
+        <h3>1. Layout Pattern Detection System</h3>
+        <img
+          src="https://via.placeholder.com/800x500"
+          alt="Layout Pattern Detection System Diagram"
+        />
+
+        <p>
+          When a developer looks at a design—let's say a grid layout—they'd
+          visually identify the elements and think, "Ok, these elements are
+          aligned both horizontally and vertically with consistent spacing -
+          this is clearly a grid layout." It's similar to how we instinctively
+          recognize a spreadsheet pattern.
+        </p>
+
+        <p>
+          First, I wanted to spot how the elements are arranged. When elements
+          are positioned in the design, check their coordinates and grouping.
+          For example:
+        </p>
+
+        <pre class="code-block">
+Element 1: (x: 0, y: 0)
+Element 2: (x: 200, y: 0)
+Element 3: (x: 400, y: 0)
+Element 4: (x: 0, y: 200)
+Element 5: (x: 200, y: 200)
+Element 6: (x: 400, y: 200)</pre
+        >
+
+        <p>
+          If elements share the same x-coordinate (or close enough) and have
+          consistent spacing on the y-axis - it's a vertical stack. Flip it,
+          reverse it, do a little dance, and boom—you've now got a horizontal
+          stack. Easy, right?
+        </p>
+
+        <p>But then… then comes the dark side. The GAPS.</p>
+
+        <p>
+          After a few "maybe I should quit and become a goat farmer" moments, I
+          got some sage advice, got myself a ruler and got to work.
+        </p>
+
+        <p>I used the x and y coordinates and the size of the elements to:</p>
+        <ul>
+          <li>Measure gaps between elements</li>
+          <li>Identify consistent spacing patterns</li>
+          <li>Convert absolute spacing to relative units</li>
+        </ul>
+
+        <h3>2. Layout Extractor</h3>
+        <p>
+          Once the layout pattern is identified, it's time to apply the layout
+          properties with respect to itself and the parent-child and sibling
+          relationships.
+        </p>
+
+        <p>
+          The main goals are to get and standardize basic layout properties,
+          deal with auto-layout conversion, handle padding and spacing
+          precisely, and make the resulting layout structure as good as
+          possible.
+        </p>
+
+        <p>To go about this, we'll need:</p>
+        <ul>
+          <li>The element's exact position (x, y coordinates)</li>
+          <li>Its dimensions (width and height)</li>
+          <li>How it relates to its parent container, and</li>
+          <li>
+            Whether it uses Figma's auto-layout (it's Figma's way of saying
+            'flexbox')
+          </li>
+        </ul>
+
+        <p>
+          When Figma says "this is an auto-layout container" it means it's a
+          flexbox. I made a mapping system that goes like this:
+        </p>
+        <ul>
+          <li>HORIZONTAL layout → flex-direction: row</li>
+          <li>VERTICAL layout → flex-direction: column</li>
+          <li>primaryAxisAlignItems → justify-content</li>
+          <li>counterAxisAlignItems → align-items</li>
+        </ul>
+
+        <h3>3. Position Detection System</h3>
+        <p>
+          The Position Detection System is the brains behind perfect element
+          placement. Here's how it works:
+        </p>
+        <ul>
+          <li>
+            Scans positions → Checks where elements sit in relation to each
+            other
+          </li>
+          <li>Spots alignment patterns → Detects if things are lined up</li>
+          <li>Assigns CSS positioning → No more position: absolute abuse</li>
+          <li>Handles edge cases → Overlaps and nested elements</li>
+        </ul>
+
+        <p>
+          It's basically the GPS for the UI elements—mapping out their placement
+          like a 3D coordinate system but for web layouts.
+        </p>
+
+        <h2>The Glow-Up: Results & Impact</h2>
+        <p>
+          With Phoenix Codie, what used to take hours now takes minutes. Some
+          quick stats:
+        </p>
+        <ul>
+          <li>
+            <span class="highlight">70% faster</span> component implementation.
+          </li>
+          <li>
+            Clean, high-quality React code that actually follows design-system
+            rules.
+          </li>
+          <li>Less need for reworks.</li>
+        </ul>
+
+        <p>
+          Developers who've tried it are like, "Where has this been all my
+          life?"
+        </p>
+
+        <p>
+          Alright, Let's talk numbers—because nothing says "trust me, bro" like
+          cold, hard stats. Old-school vs. Phoenix Codie.
+        </p>
+
+        <p>
+          <strong>Aspero Desktop:</strong>
+        </p>
+        <ul>
+          <li>Regular approach: 8 - 9 hours</li>
+          <li>Phoenix Codie: 2 - 3 hours</li>
+        </ul>
+
+        <p>
+          <strong>Aspero Mobile:</strong>
+        </p>
+        <ul>
+          <li>Regular approach: 8 - 9 hours</li>
+          <li>Phoenix Codie: 2 - 3 hours</li>
+        </ul>
+
+        <div class="image-container">
+          <img
+            src="https://via.placeholder.com/350x500"
+            alt="Original design"
+          />
+          <span class="arrow-icon">→</span>
+          <img
+            src="https://via.placeholder.com/350x500"
+            alt="Generated output"
+          />
+        </div>
+
+        <p>
+          <strong>Acumen:</strong>
+        </p>
+        <ul>
+          <li>
+            Regular approach:
+            <ul>
+              <li>Existing setup - 7 to 8 hrs</li>
+              <li>New setup - 14 to 16 hrs</li>
+            </ul>
+          </li>
+          <li>Phoenix Codie: 2 - 3 hours</li>
+        </ul>
+
+        <h3>Why Codie Slaps</h3>
+        <ul>
+          <li>✅ Time Savings → 70-80% faster</li>
+          <li>
+            ✅ Cleaner Code → Consistent, optimized, responsive out of the box,
+            standardized component patterns
+          </li>
+          <li>✅ Cost Efficiency → Less dev time = quicker launches</li>
+          <li>
+            ✅ Standardization → Sticks to the design system, no random styles
+            floating around
+          </li>
+        </ul>
+
+        <p>TL;DR—Codie takes dev time from "ugh" to "done" in no time.</p>
+
+        <h3>Smart Component Identification</h3>
+        <p>
+          One of the most impressive features is how Phoenix Codie intelligently
+          maps Figma components to appropriate React components:
+        </p>
+
+        <pre class="code-block">
+function identifyComponentType(node) {
+  // Special case for icons
+  if (node.name?.toLowerCase().includes('icon')) {
+    return 'Icon';
+  }
+
+  // Special case for tables
+  if (node.name?.toLowerCase().includes('table v3')) {
+    return 'Table';
+  }
+
+  // Handle instance components
+  if (node.type === 'INSTANCE') {
+    const trimmedName = node.name.split(/[^a-zA-Z0-9 ]/)[0];
+    const matchedComponent = Object.keys(componentTypeMap).find((key) => 
+      trimmedName?.toLowerCase().includes(key.toLowerCase())
+    );
+    
+    if (matchedComponent) {
+      return componentTypeMap[matchedComponent];
+    }
+  }
+
+  // Handle text nodes
+  if (node.type === 'TEXT') {
+    return 'Typography';
+  }
+
+  // Default case
+  return 'View';
+}</pre
+        >
+
+        <div class="image-container">
+          <img
+            src="https://via.placeholder.com/350x350"
+            alt="Original nested components"
+          />
+          <span class="arrow-icon">→</span>
+          <img
+            src="https://via.placeholder.com/350x350"
+            alt="Generated component hierarchy"
+          />
+        </div>
+
+        <h2>Lessons From the Grind</h2>
+        <p>
+          Building Phoenix Codie was like trying to assemble a jigsaw puzzle
+          where half the pieces are invisible and the other half explode on
+          contact. Converting Figma's positioning madness into sleek,
+          maintainable Flexbox and Grid layouts was the biggest challenge. At
+          this point, I don't even code—I just perform dark rituals and hope the
+          CSS gods grant me mercy.
+        </p>
+
+        <h3>1. Layouts Are Tricky</h3>
+        <p>
+          Figma uses absolute positioning but React leans on Flexbox/Grid. They
+          don't exactly shake hands. Translation is <em>Hard</em>. Guess who had
+          to play translator? Yeah.
+        </p>
+
+        <p>
+          Figma's auto-layout system, while powerful, doesn't map perfectly to
+          CSS Flexbox and Grid.
+        </p>
+        <ol>
+          <li>
+            Spacing Inconsistencies: Figma's spacing model needed careful
+            translation to CSS
+          </li>
+          <li>
+            Nested Auto-layouts: Complex nested layouts required special
+            handling
+          </li>
+          <li>
+            Responsive Considerations: Making the generated code responsive
+            while maintaining design fidelity
+          </li>
+        </ol>
+
+        <h3>2. Nested Components = Chaos</h3>
+        <p>
+          One of the biggest surprises was the complexity of handling nested
+          components. What seemed straightforward in theory became complex when
+          dealing with real-world designs. A button, for instance. It has hover
+          states, focus styles, active states, disabled versions, and a hidden
+          variant for some reason. Codie handles this gracefully by breaking
+          down each layer into props.
+        </p>
+
+        <h3>3. Error Handling Saves Lives</h3>
+        <p>
+          Early versions of Codie simply failed on invalid inputs. One wrong
+          move, and the whole thing went down. But we leveled up.
+        </p>
+        <ol>
+          <li>
+            Graceful Degradation: When certain properties couldn't be extracted,
+            the system falls back to sensible defaults.
+          </li>
+          <li>
+            Detailed Error Reporting: Instead of vague "something broke"
+            messages, you actually get useful info.
+          </li>
+          <li>
+            Recovery Mechanisms: The ability to continue processing even when
+            parts of the design are invalid.
+          </li>
+        </ol>
+
+        <h3>4. Documentation Importance</h3>
+        <p>
+          You know what's fun? Building cool stuff. You know what's not fun?
+          Trying to remember how that cool stuff works six months later.
+        </p>
+
+        <p>That's why we created detailed docs for:</p>
+        <ol>
+          <li>Component mappings</li>
+          <li>Property translations</li>
+          <li>Style conversions</li>
+          <li>Common error scenarios</li>
+        </ol>
+
+        <p>
+          This documentation proved invaluable. Because Telepathy Isn't a
+          Feature (Yet).
+        </p>
+
+        <p>
+          The most valuable lesson was the importance of real-world testing with
+          actual design files, as they often contained edge cases that weren't
+          covered by our initial test suite. There were a lot of "well, that's
+          new" moments.
+        </p>
+
+        <h3>Design Patterns Used</h3>
+        <p>
+          Building Phoenix Codie required implementing several sophisticated
+          design patterns:
+        </p>
+
+        <div class="feature-card">
+          <h4>Extractor Factory Pattern</h4>
+          <p>
+            Allows for specialized handling of different component types while
+            maintaining a consistent interface:
+          </p>
+        </div>
+
+        <pre class="code-block">
+class ComponentPropExtractorFactory {
+  static extractorMap = {
+    Button: ButtonPropExtractor,
+    Tabs: TabsPropExtractor,
+    // ... other extractors
+  };
+
+  static create(node, componentType, componentDoc, parentLayout, propMapping) {
+    const ExtractorClass = this.extractorMap[componentType] || GenericComponentPropExtractor;
+    return new ExtractorClass(node, componentType, componentDoc, parentLayout, propMapping);
+  }
+}</pre
+        >
+
+        <div class="feature-card">
+          <h4>Composite Pattern</h4>
+          <p>Represents the hierarchical structure of UI components:</p>
+        </div>
+
+        <pre class="code-block">
+createContainerComponent(node, layout, styles, children, depth, figmaImages) {
+  let childComponents = children.map((child) => 
+    this.traverse(child, layout, depth + 1, figmaImages)
+  ).filter(Boolean);
+  
+  return {
+    type: node.type === "FRAME" ? "View" : "Group",
+    key: node.id,
+    name: node.name,
+    layout,
+    style: styles,
+    children: childComponents,
+    spacing: this.extractSpacingInfo(node),
+  };
+}</pre
+        >
+
+        <p>
+          These patterns and approaches have been crucial in shaping Phoenix
+          Codie into a more robust and reliable tool. Each challenge we
+          encountered led to improvements in the system's architecture and
+          capabilities, making it better suited for real-world use cases.
+        </p>
+
+        <p>
+          TL;DR – Docs matter. Testing matters. And design patterns are your
+          friends.
+        </p>
+
+        <img
+          src="https://via.placeholder.com/800x400"
+          alt="Phoenix Codie complete workflow diagram"
+        />
+
+        <h2>Business Value & Conclusion</h2>
+        <p>
+          Phoenix Codie provides significant value in the design-to-development
+          workflow:
+        </p>
+
+        <ol>
+          <li>
+            <strong>Time Savings:</strong> Reduces the time required to
+            translate designs into code by 60-80%
+          </li>
+          <li>
+            <strong>Consistency:</strong> Ensures consistent implementation of
+            design elements across applications
+          </li>
+          <li>
+            <strong>Quality:</strong> Generates optimized, clean code that
+            follows best practices
+          </li>
+          <li>
+            <strong>Collaboration:</strong> Improves designer-developer
+            collaboration by providing a common reference point
+          </li>
+          <li>
+            <strong>Iteration Speed:</strong> Enables rapid design iteration by
+            quickly reflecting changes in code
+          </li>
+        </ol>
+
+        <p>
+          Phoenix Codie represents a sophisticated solution to the persistent
+          challenge of translating designs into code. We took the design-dev
+          handshake, slapped some AI into it, and made the whole process
+          ridiculously smooth. No more nightmares, no more therapy sessions.
+          Just clean, fast, and design-accurate code that makes devs and
+          designers finally get along (well, mostly).
+        </p>
+
+        <p>
+          The system's architecture demonstrates a thoughtful approach to the
+          problem, with specialized modules handling different aspects of the
+          conversion process and a user-friendly interface that makes the tool
+          accessible to both developers and designers. The integration of AI
+          assistance further enhances its capabilities, allowing for natural
+          language refinement of the generated code.
+        </p>
+
+        <h3>Future Enhancements</h3>
+        <p>Potential areas for expansion of Phoenix Codie include:</p>
+
+        <ul>
+          <li>
+            Animation Support: Detecting and implementing animations from Figma
+            designs
+          </li>
+          <li>
+            Design System Integration: Direct mapping to established component
+            libraries
+          </li>
+          <li>
+            Code Export Formats: Support for additional frameworks beyond React
+          </li>
+          <li>Custom Component Creation: Adding custom component templates</li>
+          <li>
+            Design Validation: Checking designs for implementation feasibility
+          </li>
+          <li>
+            Accessibility Review: Suggestions for improving accessibility in
+            generated code
+          </li>
+        </ul>
+
+        <p>
+          As design systems and component-based development continue to grow in
+          importance, tools like Phoenix Codie will play an increasingly vital
+          role in streamlining the development process, enabling teams to focus
+          on innovation rather than implementation details.
+        </p>
+
+        <p>Got feature requests? Drop 'em hot—we're always listening.</p>
+
+        <p>
+          Codie streamlines workflows, keeps code clean, and ensures that what
+          you design is what you ship. The only question is: Are you in?
+        </p>
+      </div>
+
+      <a href="../index.html" class="back-link">← Back to Portfolio</a>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

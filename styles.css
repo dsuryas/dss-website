@@ -6,6 +6,7 @@
   --accent: #dddddd;
   --border: #333333;
   --card-bg: #111111;
+  --code-bg: #1f1f1f;
   --hover-bg: rgba(255, 255, 255, 0.05);
 
   /* Colors - Light Theme */
@@ -15,6 +16,7 @@
   --accent-light: #333333;
   --border-light: #dddddd;
   --card-bg-light: #f5f5f5;
+  --code-bg-light: #edebeb;
   --hover-bg-light: rgba(0, 0, 0, 0.05);
 
   /* Typography */
@@ -29,9 +31,9 @@
   --spacing-xl: 3rem;
 
   /* Border Radius */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -46,7 +48,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none !important;
 }
 
 html {
@@ -112,28 +113,6 @@ button {
   cursor: pointer;
 }
 
-/* Custom Cursor */
-.cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #005440; /* Aston Martin Racing Green - solid */
-  pointer-events: none;
-  z-index: 10000;
-  mix-blend-mode: normal; /* Changed to normal to show true color */
-  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease,
-    transform 0.1s ease;
-  transform: translate(-50%, -50%);
-}
-
-.cursor.clickable {
-  width: 30px;
-  height: 30px;
-  background-color: #005440; /* Aston Martin Green */
-  box-shadow: 0 0 15px 3px rgba(0, 120, 90, 0.7); /* Stronger green glow */
-}
-
 /* Layout */
 .portfolio-container {
   display: flex;
@@ -180,6 +159,27 @@ button {
   opacity: 0.5;
 }
 
+/* Global Theme Toggle */
+.global-theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  transition: background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.global-theme-toggle:hover {
+  background-color: var(--hover-bg);
+}
+
 /* Sidebar Elements */
 .theme-toggle {
   position: absolute;
@@ -191,7 +191,7 @@ button {
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 0;
   background-color: var(--card-bg);
   /* border: 1px solid var(--border); */
   color: var(--text-primary);
@@ -241,7 +241,7 @@ button {
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 0;
   background-color: var(--card-bg);
   border: 1px solid var(--border);
   color: var(--text-primary);
@@ -259,7 +259,7 @@ button {
   justify-content: center;
   gap: 8px;
   padding: 8px 16px;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   font-size: 0.9rem;
   border: 1px solid var(--border);
   background-color: var(--card-bg);
@@ -467,7 +467,7 @@ button {
 
 .project-card {
   background-color: var(--background);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   border: 1px solid var(--border);
   padding: var(--spacing-md);
   transition: transform var(--transition-fast),
@@ -506,7 +506,7 @@ button {
   font-size: 0.7rem;
   color: var(--text-secondary);
   padding: 3px 8px;
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   background-color: var(--hover-bg);
   font-family: var(--font-mono);
 }
@@ -535,7 +535,7 @@ button {
 
 .blog-card {
   background-color: var(--background);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   border: 1px solid var(--border);
   padding: var(--spacing-md);
   transition: transform var(--transition-fast),
@@ -634,13 +634,240 @@ button {
   opacity: 0.15;
   background: radial-gradient(
     circle at var(--x, 50%) var(--y, 50%),
-    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.4) 0%,
     transparent 25%
   );
   transition: opacity 0.3s;
 }
 
+/* Project Page Styles */
+.project-container {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem 0;
+  min-height: 90vh;
+}
+
+.project-container .sidebar {
+  flex: 0 0 20%;
+  position: sticky;
+  top: 2rem;
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+  padding-right: 1.5rem;
+  min-width: auto;
+  max-width: none;
+}
+
+.project-container .main-content {
+  flex: 0 0 60%;
+  overflow-y: auto;
+  padding: 0 1.5rem;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.tech-sidebar {
+  flex: 0 0 20%;
+  position: sticky;
+  top: 2rem;
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+  padding-left: 1.5rem;
+}
+
+.toc-title,
+.tech-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.toc-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-item {
+  margin-bottom: 0.3rem;
+}
+
+.toc-link {
+  display: block;
+  padding: 0.2rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+
+.toc-link:hover,
+.toc-link.active {
+  color: var(--text-primary);
+  border-left: 2px solid var(--accent);
+  background-color: var(--hover-bg);
+}
+
+.toc-link.subheading {
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.project-header {
+  margin-bottom: 2rem;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.project-date {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.project-content {
+  line-height: 1.8;
+}
+
+.project-content h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem 0;
+  color: var(--text-primary);
+  padding-top: 1rem;
+  scroll-margin-top: 2rem;
+}
+
+.project-content h3 {
+  font-size: 1.4rem;
+  margin: 1.5rem 0 1rem 0;
+  color: var(--accent);
+  scroll-margin-top: 2rem;
+}
+
+.project-content p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.project-content ul,
+.project-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.project-content li {
+  margin-bottom: 0.5rem;
+}
+
+.project-content img {
+  max-width: 100%;
+  margin: 2rem 0;
+}
+
+.project-content code {
+  font-family: var(--font-mono);
+  background-color: var(--card-bg);
+  padding: 0.2rem 0.4rem;
+  font-size: 0.9rem;
+}
+
+.project-content pre {
+  background-color: var(--code-bg);
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.project-content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.tech-stack {
+  margin-bottom: 2rem;
+}
+
+.tech-group {
+  margin-bottom: 1.5rem;
+}
+
+.tech-group-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  color: var(--text-primary);
+}
+
+.tech-item {
+  display: block;
+  background-color: var(--card-bg);
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+
+.feature-block {
+  background-color: var(--card-bg);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 3px solid var(--accent);
+}
+
+.feature-block h4 {
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.feature-block p {
+  margin-bottom: 0;
+}
+
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .project-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 992px) {
+  .project-container {
+    flex-direction: column;
+  }
+
+  .project-container .sidebar,
+  .tech-sidebar {
+    position: static;
+    height: auto;
+    flex: 0 0 100%;
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+
+  .project-container .main-content {
+    flex: 0 0 100%;
+    border-left: none;
+    border-right: none;
+    padding: 0;
+  }
+
+  .tech-sidebar {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .portfolio-container {
     flex-direction: column;
