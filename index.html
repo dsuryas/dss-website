@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+< lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,18 +17,45 @@
       rel="stylesheet"
     />
     <link href="https://fonts.cdnfonts.com/css/lexend" rel="stylesheet" />
-
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
 
-    <link href="./styles.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="./glassmorphic-styles.css" rel="stylesheet" />
+    <link href="./glass-effects.css" rel="stylesheet" />
+
+    <!-- Meta tags for better SEO -->
+    <meta
+      name="description"
+      content="Portfolio of Deepak Surya - Frontend Engineer with expertise in React, TypeScript, and UI architectures"
+    />
+    <meta
+      name="keywords"
+      content="frontend engineer, react, typescript, UI, design systems, portfolio"
+    />
   </head>
-  <body class="noir-filter">
+  <>
+    <!-- Glass effect background elements -->
+    <div class="glass-background">
+      <div class="glass-orb glass-orb-1"></div>
+      <div class="glass-orb glass-orb-2"></div>
+      <div class="glass-orb glass-orb-3"></div>
+    </div>
+
+    <!-- Preloader for smooth transitions -->
+    <div class="preloader">
+      <div class="preloader-content">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">Deepak Surya</div>
+      </div>
+    </div>
+
     <!-- Spotlight/Torch Effect -->
     <div class="spotlight" id="spotlight"></div>
+    <!-- <div class="cursor" id="cursor"></div> -->
 
     <!-- Global Theme Toggle -->
     <button
-      class="global-theme-toggle"
+      class="global-theme-toggle glass-button"
       id="global-theme-toggle"
       aria-label="Toggle dark/light mode"
     >
@@ -72,7 +99,7 @@
             <a
               href="https://github.com/dsuryas"
               target="_blank"
-              class="social-link"
+              class="social-link glass-link"
               aria-label="GitHub"
             >
               <svg
@@ -94,7 +121,7 @@
             <a
               href="https://linkedin.com/in/deepaksuryas"
               target="_blank"
-              class="social-link"
+              class="social-link glass-link"
               aria-label="LinkedIn"
             >
               <svg
@@ -160,7 +187,7 @@
 
           <!-- Experience Tab -->
           <div class="tab-content active" id="experience">
-            <div class="experience-item">
+            <div class="experience-item glass-card">
               <div class="experience-header">
                 <h3 class="experience-title">
                   Senior Software Engineer
@@ -204,7 +231,7 @@
               </div>
             </div>
 
-            <div class="experience-item">
+            <div class="experience-item glass-card">
               <div class="experience-header">
                 <h3 class="experience-title">
                   Software Engineer
@@ -233,7 +260,7 @@
               </div>
             </div>
 
-            <div class="experience-item">
+            <div class="experience-item glass-card">
               <div class="experience-header">
                 <h3 class="experience-title">
                   Software Engineer
@@ -265,253 +292,264 @@
           <!-- Projects Tab -->
           <div class="tab-content" id="projects">
             <div class="projects-grid">
-              <div class="project-card">
-                <h3 class="project-title">Phoenix Codie</h3>
-                <p class="project-description">
-                  A Figma-to-React converter that reduced frontend development
-                  time by 70-80%. This tool enables teams to go from design to
-                  production in a week by analyzing Figma layouts and generating
-                  optimized React components.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">React</span>
-                  <span class="project-tag">TypeScript</span>
-                  <span class="project-tag">Figma API</span>
-                  <span class="project-tag">Node.js</span>
-                  <span class="project-tag">AI</span>
-                </div>
-                <div class="project-links">
-                  <a
-                    href="https://github.com/dsuryas/phoenix-codie"
-                    class="project-link"
-                    target="_blank"
-                    aria-label="GitHub Repository"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+              <div class="project-card glass-card">
+                <div class="glass-card-content">
+                  <h3 class="project-title">Phoenix Codie</h3>
+                  <p class="project-description">
+                    A Figma-to-React converter that reduced frontend development
+                    time by 70-80%. This tool enables teams to go from design to
+                    production in a week by analyzing Figma layouts and
+                    generating optimized React components.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag glass-tag">React</span>
+                    <span class="project-tag glass-tag">TypeScript</span>
+                    <span class="project-tag glass-tag">Figma API</span>
+                    <span class="project-tag glass-tag">Node.js</span>
+                    <span class="project-tag glass-tag">AI</span>
+                  </div>
+                  <div class="project-links">
+                    <a
+                      href="https://github.com/dsuryas/phoenix-codie"
+                      class="project-link glass-link"
+                      target="_blank"
+                      aria-label="GitHub Repository"
                     >
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                      ></path>
-                    </svg>
-                  </a>
-                  <a
-                    href="projects/phoenix-codie.html"
-                    class="project-link"
-                    aria-label="View Project"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      href="projects/phoenix-codie.html"
+                      class="project-link glass-link"
+                      aria-label="View Project"
                     >
-                      <path
-                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                      ></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <div class="project-card">
-                <h3 class="project-title">Netflix Clone</h3>
-                <p class="project-description">
-                  A Netflix-like web app with authentication, profile
-                  management, and video streaming. Built with React, Firebase,
-                  Styled Components, and React Router.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">React</span>
-                  <span class="project-tag">Firebase</span>
-                  <span class="project-tag">Styled Components</span>
-                  <span class="project-tag">React Router</span>
-                </div>
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    target="_blank"
-                    aria-label="GitHub Repository"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                      ></path>
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    class="project-link"
-                    target="_blank"
-                    aria-label="Live Demo"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path
-                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                      ></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </a>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                        ></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div class="project-card">
-                <h3 class="project-title">CL5 Automotives</h3>
-                <p class="project-description">
-                  A full-fledged inventory management and admin dashboard system
-                  for an automotive company using React, Material UI, and MySQL.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">React</span>
-                  <span class="project-tag">Material UI</span>
-                  <span class="project-tag">MySQL</span>
-                </div>
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    target="_blank"
-                    aria-label="GitHub Repository"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+              <div class="project-card glass-card">
+                <div class="glass-card-content">
+                  <h3 class="project-title">Netflix Clone</h3>
+                  <p class="project-description">
+                    A Netflix-like web app with authentication, profile
+                    management, and video streaming. Built with React, Firebase,
+                    Styled Components, and React Router.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag glass-tag">React</span>
+                    <span class="project-tag glass-tag">Firebase</span>
+                    <span class="project-tag glass-tag">Styled Components</span>
+                    <span class="project-tag glass-tag">React Router</span>
+                  </div>
+                  <div class="project-links">
+                    <a
+                      href="#"
+                      class="project-link glass-link"
+                      target="_blank"
+                      aria-label="GitHub Repository"
                     >
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                      ></path>
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    class="project-link"
-                    target="_blank"
-                    aria-label="Live Demo"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      href="#"
+                      class="project-link glass-link"
+                      target="_blank"
+                      aria-label="Live Demo"
                     >
-                      <path
-                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                      ></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </a>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                        ></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div class="project-card">
-                <h3 class="project-title">Collective Decision-Making System</h3>
-                <p class="project-description">
-                  A peer-to-peer blockchain-based decision-making system built
-                  with Ethereum, Solidity, and IPFS.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">Ethereum</span>
-                  <span class="project-tag">Solidity</span>
-                  <span class="project-tag">IPFS</span>
-                  <span class="project-tag">React</span>
+              <div class="project-card glass-card">
+                <div class="glass-card-content">
+                  <h3 class="project-title">CL5 Automotives</h3>
+                  <p class="project-description">
+                    A full-fledged inventory management and admin dashboard
+                    system for an automotive company using React, Material UI,
+                    and MySQL.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag glass-tag">React</span>
+                    <span class="project-tag glass-tag">Material UI</span>
+                    <span class="project-tag glass-tag">MySQL</span>
+                  </div>
+                  <div class="project-links">
+                    <a
+                      href="#"
+                      class="project-link glass-link"
+                      target="_blank"
+                      aria-label="GitHub Repository"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      href="#"
+                      class="project-link glass-link"
+                      target="_blank"
+                      aria-label="Live Demo"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                        ></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
-                <div class="project-links">
-                  <a
-                    href="#"
-                    class="project-link"
-                    target="_blank"
-                    aria-label="GitHub Repository"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+              </div>
+
+              <div class="project-card glass-card">
+                <div class="glass-card-content">
+                  <h3 class="project-title">
+                    Collective Decision-Making System
+                  </h3>
+                  <p class="project-description">
+                    A peer-to-peer blockchain-based decision-making system built
+                    with Ethereum, Solidity, and IPFS.
+                  </p>
+                  <div class="project-tags">
+                    <span class="project-tag glass-tag">Ethereum</span>
+                    <span class="project-tag glass-tag">Solidity</span>
+                    <span class="project-tag glass-tag">IPFS</span>
+                    <span class="project-tag glass-tag">React</span>
+                  </div>
+                  <div class="project-links">
+                    <a
+                      href="#"
+                      class="project-link glass-link"
+                      target="_blank"
+                      aria-label="GitHub Repository"
                     >
-                      <path
-                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                      ></path>
-                    </svg>
-                  </a>
-                  <a
-                    href="#"
-                    class="project-link"
-                    target="_blank"
-                    aria-label="Live Demo"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      href="#"
+                      class="project-link glass-link"
+                      target="_blank"
+                      aria-label="Live Demo"
                     >
-                      <path
-                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                      ></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </a>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path
+                          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                        ></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -520,136 +558,72 @@
           <!-- Blog Tab -->
           <div class="tab-content" id="blog">
             <div class="blog-posts">
-              <div class="blog-card">
-                <h3 class="blog-title">
-                  Building Phoenix Codie: A Figma-to-React Code Generator
-                </h3>
-                <p class="blog-date">Mar 15, 2023</p>
-                <p class="blog-excerpt">
-                  Learn how I built Phoenix Codie, a tool that converts Figma
-                  designs directly into React components, reducing frontend
-                  development time by 70-80%.
-                </p>
-                <a href="projects/phoenix-codie.html" class="blog-read-more"
-                  >Read More →</a
-                >
+              <div class="blog-card glass-card">
+                <div class="glass-card-content">
+                  <h3 class="blog-title">
+                    Building Phoenix Codie: A Figma-to-React Code Generator
+                  </h3>
+                  <p class="blog-date">Mar 15, 2023</p>
+                  <p class="blog-excerpt">
+                    Learn how I built Phoenix Codie, a tool that converts Figma
+                    designs directly into React components, reducing frontend
+                    development time by 70-80%.
+                  </p>
+                  <a
+                    href="projects/phoenix-codie.html"
+                    class="blog-read-more glass-link"
+                    >Read More →</a
+                  >
+                </div>
               </div>
 
-              <div class="blog-card">
-                <h3 class="blog-title">
-                  Leveraging LLMs for Frontend Development
-                </h3>
-                <p class="blog-date">Sep 02, 2023</p>
-                <p class="blog-excerpt">
-                  Explore how I've been using Large Language Models to automate
-                  code generation and enhance frontend development workflows.
-                </p>
-                <a href="#" class="blog-read-more">Read More →</a>
+              <div class="blog-card glass-card">
+                <div class="glass-card-content">
+                  <h3 class="blog-title">
+                    Leveraging LLMs for Frontend Development
+                  </h3>
+                  <p class="blog-date">Sep 02, 2023</p>
+                  <p class="blog-excerpt">
+                    Explore how I've been using Large Language Models to
+                    automate code generation and enhance frontend development
+                    workflows.
+                  </p>
+                  <a href="#" class="blog-read-more glass-link">Read More →</a>
+                </div>
               </div>
 
-              <div class="blog-card">
-                <h3 class="blog-title">Design Systems: A Practical Guide</h3>
-                <p class="blog-date">Aug 15, 2023</p>
-                <p class="blog-excerpt">
-                  Learn how to implement and maintain a scalable design system
-                  that enhances UI consistency across multiple applications.
-                </p>
-                <a href="#" class="blog-read-more">Read More →</a>
+              <div class="blog-card glass-card">
+                <div class="glass-card-content">
+                  <h3 class="blog-title">Design Systems: A Practical Guide</h3>
+                  <p class="blog-date">Aug 15, 2023</p>
+                  <p class="blog-excerpt">
+                    Learn how to implement and maintain a scalable design system
+                    that enhances UI consistency across multiple applications.
+                  </p>
+                  <a href="#" class="blog-read-more glass-link">Read More →</a>
+                </div>
               </div>
 
-              <div class="blog-card">
-                <h3 class="blog-title">Optimizing React Performance</h3>
-                <p class="blog-date">Jul 26, 2023</p>
-                <p class="blog-excerpt">
-                  Practical strategies and techniques for optimizing React
-                  applications for better performance and user experience.
-                </p>
-                <a href="#" class="blog-read-more">Read More →</a>
+              <div class="blog-card glass-card">
+                <div class="glass-card-content">
+                  <h3 class="blog-title">Optimizing React Performance</h3>
+                  <p class="blog-date">Jul 26, 2023</p>
+                  <p class="blog-excerpt">
+                    Practical strategies and techniques for optimizing React
+                    applications for better performance and user experience.
+                  </p>
+                  <a href="#" class="blog-read-more glass-link">Read More →</a>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Timeline Tab -->
-          <div class="tab-content" id="timeline">
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2023</div>
-                <div class="timeline-content">
-                  <strong>Built Phoenix Codie at Yubi</strong>
-                  <p>
-                    Developed a Figma-to-React converter that reduced frontend
-                    development time by 70-80% and enabled faster product
-                    delivery.
-                  </p>
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">July 2021 - Present</div>
-                <div class="timeline-content">
-                  <strong
-                    >Senior Software Engineer at Yubi (Formerly
-                    CredAvenue)</strong
-                  >
-                  <p>
-                    Leading frontend development for multiple products, built
-                    Phoenix Codie, and established design systems.
-                  </p>
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">January 2020 - June 2021</div>
-                <div class="timeline-content">
-                  <strong>Software Engineer at MonkeyCap.com</strong>
-                  <p>
-                    Led frontend and backend modules for user account
-                    management.
-                  </p>
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">December 2018 - October 2019</div>
-                <div class="timeline-content">
-                  <strong>Software Engineer at Finoptiz Infotech</strong>
-                  <p>Developed web applications for automotive clients.</p>
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2018</div>
-                <div class="timeline-content">
-                  <strong>Started Career in Web Development</strong>
-                  <p>
-                    Began journey as a frontend developer, focusing on HTML,
-                    CSS, and JavaScript.
-                  </p>
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2014 - 2018</div>
-                <div class="timeline-content">
-                  <strong>Bachelor's Degree in Computer Science</strong>
-                  <p>
-                    Completed undergraduate studies with a focus on software
-                    development.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </main>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
+    <script src="./glass-effects.js"></script>
   </body>
 </html>
